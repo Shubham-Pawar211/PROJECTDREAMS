@@ -14,7 +14,7 @@ afterEach(() => {
     Logout();
 });
 
-describe('test description', () => {
+describe('Home page and Message inbox Tests', () => {
 
 
     it('Validates the presence of main navigation items', () => {
@@ -55,11 +55,6 @@ describe('test description', () => {
         cy.get('.breadcrumb-item').contains('Home').click()
         cy.url().should('contain', '/dashboard')
 
-
     });
-
-
-
-
 
 })
