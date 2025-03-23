@@ -1,0 +1,15 @@
+
+
+{
+    "name": "Standard User",
+    "initialBalance": "1000",
+    "accountNumber": "123456789012",
+    "branchCode": "IOB1101",
+    "bankBranch": "Nigdi",
+
+    "accountName": "Second User",
+    "initialAmount": "1000",
+    "accountNo": "123456789001",
+    "branchCodeNo": "IOB1102",
+    "branchName": "Baner"
+  }

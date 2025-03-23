@@ -52,3 +52,9 @@ export function Logout() {
     cy.url().should('include', '/login')
     
 }
+
+export function clickAccountList() {
+    cy.get('.dash-link').contains('Finance').click()
+    cy.get('.dash-submenu .dash-link').contains('Account List').click()
+    
+}

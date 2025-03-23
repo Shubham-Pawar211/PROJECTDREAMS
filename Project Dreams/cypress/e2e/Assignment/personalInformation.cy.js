@@ -17,7 +17,7 @@ afterEach(() => {
 
 describe('Add & Edit personal information', () => {
 
-    it.only('Validate that click on "My Profile" option display Profile details', function () {
+    it('Validate that click on "My Profile" option display Profile details', function () {
         cy.get('.page-header-title').should('contain', 'Profile')
 
     });
