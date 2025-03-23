@@ -3,6 +3,8 @@ const {downloadFile} = require('cypress-downloadfile/lib/addPlugin')
 
 module.exports = defineConfig({
   e2e: {
+
+    baseUrl: "https://www.hrmagix.com/in/app/login#",
     env: {
       name: "Aniket Pate",
       email: "pawarshubham211@gmail.com",

@@ -2,7 +2,7 @@ import { loginByUser, loginByInvalidUser } from "../../support/utility";
 
 
 beforeEach(() => {
-    cy.visit('https://www.hrmagix.com/in/app/login#');
+    cy.visit('/');
     cy.get('#c-p-bn').click()
     cy.fixture('userData').as('data');
 });

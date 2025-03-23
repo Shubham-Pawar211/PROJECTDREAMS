@@ -1,9 +1,8 @@
 
 
 beforeEach(() => {
-    cy.visit('https://www.hrmagix.com/in/app/login#');
+    cy.visit('/');
     cy.get('#c-p-bn').click()
-    // cy.get('body').debug();
     cy.get('.custom-login-form').contains('Register').click()
     cy.fixture('userData').as('data');
 
@@ -44,7 +43,7 @@ describe('Registration page testing', () => {
         cy.get('#loginForm').contains(confirmPasswordValidation).should('exist')
     });
 
-    it.only('validate that on click of Register button on entering valid details display Success message ', function () {
+    it('validate that on click of Register button on entering valid details display Success message ', function () {
         cy.get('#name').type(this.data.newUserName)
         cy.get('#email').type(this.data.newUserEmail)
         cy.get('#password').type(this.data.password)

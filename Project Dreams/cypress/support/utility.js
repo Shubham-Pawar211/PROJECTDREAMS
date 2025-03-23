@@ -45,3 +45,10 @@ export function clickOnMessageBtn() {
         .click()
 
 }
+
+export function Logout() {
+    cy.get('[role="button"]').find('.theme-avtar').click()
+    cy.get('.dropdown-item').contains('Logout').click()
+    cy.url().should('include', '/login')
+    
+}

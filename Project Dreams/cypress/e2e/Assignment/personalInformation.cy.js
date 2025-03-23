@@ -1,7 +1,7 @@
-import { goToProfile } from "../../support/utility";
+import { goToProfile, Logout } from "../../support/utility";
 
 beforeEach(() => {
-    cy.visit('https://www.hrmagix.com/in/app/login#');
+    cy.visit('/');
     cy.get('#c-p-bn').click()
 
     cy.fixture('userData').as('data');
@@ -10,10 +10,14 @@ beforeEach(() => {
 
 });
 
+afterEach(() => {
+    Logout();
+});
 
-describe('test description', () => {
 
-    it('Validate that click on "My Profile" option display Profile details', function () {
+describe('Add & Edit personal information', () => {
+
+    it.only('Validate that click on "My Profile" option display Profile details', function () {
         cy.get('.page-header-title').should('contain', 'Profile')
 
     });
@@ -41,14 +45,14 @@ describe('test description', () => {
         
         cy.get('#useradd-sidenav').contains('Personal Information').click()
 
-        const filePath = 'ImgUpload.png'
+        const filePath = 'Avtar.png'
         cy.get('#profile').attachFile(filePath)
         cy.get('#useradd-1').find('[value="Save Changes"]').click()
-        cy.get('#blah', { timeout: 6000 }).invoke('attr', 'src').should('contain', '/ImgUpload.png')
+        cy.get('#liveToast').should('include.text', 'Profile successfully updated.')
     });
 
-
-    it.only('Validate on click of "Save Changes" button update successful message is dislayed', function () {
+    
+    it('Validate on click of "Save Changes" button update successful message is dislayed', function () {
 
         cy.get('#useradd-sidenav').contains('Personal Information').click()
         cy.get('#useradd-1 .card-body').find('[placeholder="Enter Your Name"]').should('be.enabled')

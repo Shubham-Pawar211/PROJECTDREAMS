@@ -1,13 +1,17 @@
-import { clickOnMessageBtn } from "../../support/utility";
+import { clickOnMessageBtn, Logout } from "../../support/utility";
 
 
 beforeEach(() => {
-    cy.visit('https://www.hrmagix.com/in/app/login#');
+    cy.visit('/');
     cy.get('#c-p-bn').click()
     cy.fixture('userData').as('data');
     cy.logIn(Cypress.env('email'), Cypress.env('password'));
     cy.viewport(1316, 660);
 
+});
+
+afterEach(() => {
+    Logout();
 });
 
 describe('test description', () => {
@@ -41,8 +45,8 @@ describe('test description', () => {
     it('Validate on click of "View all" button of message inbox opens "Manage Messenger" page', () => {
         clickOnMessageBtn()
         cy.get('.d-grid > .btn').click()
-        cy.get('.page-header .page-header-title').should('contain','Manage Messenger')
-        
+        cy.get('.page-header .page-header-title').should('contain', 'Manage Messenger')
+
     });
 
     it('validate on click of "Home" link text redirects user to dashboard', () => {
@@ -51,7 +55,7 @@ describe('test description', () => {
         cy.get('.breadcrumb-item').contains('Home').click()
         cy.url().should('contain', '/dashboard')
 
-        
+
     });
 
 
